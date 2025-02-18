@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callidus</title>
+  <link rel="icon" href="assets/img/logo-icon.png">
+ 
+   <!-- CSS only -->
+   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+   <!-- Font Awesome 6 -->
+   <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.min.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/swiper.css"> 
+   <!-- style -->
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   <!-- responsive -->
+   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+   <!-- color -->
+   <link rel="stylesheet" type="text/css" href="assets/css/color.css">
+   <!-- Critical CSS -->
+   <style>
+     body {
+       margin: 0;
+       padding: 0;
+       font-family: 'Inter', sans-serif;
+     }
+     
+     .nav {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       padding: 10px 0;
+     }
+     
+     .logo img {
+       max-height: 50px;
+       width: auto;
+     }
+     
+     .menu {
+       display: flex;
+       list-style: none;
+       margin: 0;
+       padding: 0;
+     }
+     
+     .menu a {
+       color: #fff;
+       text-decoration: none;
+       padding: 0 15px;
+     }
+     
+     /* Mobile nav styles */
+     .mobile-nav {
+       display: none;
+     }
+     
+     @media (max-width: 768px) {
+       .menu {
+         display: none;
+       }
+       
+       .mobile-nav {
+         display: block;
+       }
+       
+       .mobile-nav img {
+         max-height: 40px;
+         width: auto;
+       }
+     }
+
+     header {
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       z-index: 1000;
+       background-color: transparent;
+       transition: background-color 0.3s ease;
+       padding: 20px 0;
+     }
+
+     /* Remove the body padding since we want the hero image to start from the top */
+     body {
+       padding-top: 0;
+     }
+
+     /* Make header background white only when scrolled */
+     header.scrolled {
+       background-color: #fff;
+       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+     }
+
+     /* Adjust menu text colors for better visibility */
+     .menu a {
+       color: #fff;
+     }
+
+     /* Change menu text color when header is scrolled */
+     header.scrolled .menu a {
+       color: #000;
+     }
+
+     /* Ensure the hero section starts from the top */
+     .hero-section-one {
+       padding-top: 120px; /* Adjust based on your header height */
+     }
+
+     /* Ensure other elements stay on top of the hero image */
+     .preloader {
+       z-index: 1001;
+     }
+
+     .small-services {
+       display: flex;
+       align-items: center;
+       padding: 20px;
+     }
+
+     .small-services i {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       width: 50px;
+       height: 50px;
+       margin-right: 15px;
+       flex-shrink: 0;
+     }
+
+     .small-services .fa-2x {
+       font-size: 24px;
+     }
+
+     .small-services div {
+       display: flex;
+       flex-direction: column;
+     }
+
+     .small-services a {
+       font-size: 18px;
+       font-weight: 600;
+       margin-bottom: 5px;
+       color: inherit;
+       text-decoration: none;
+     }
+
+     .small-services span {
+       font-size: 14px;
+       color: #666;
+     }
+
+     /* Button style overrides */
+     .themebtu {
+       background-color: #E5DCE8 !important;
+       color: #333 !important;
+       border: 1px solid #E5DCE8 !important;
+     }
+
+     .themebtu:hover {
+       background-color: #d8cbdd !important;
+       border-color: #d8cbdd !important;
+     }
+
+     .themebtu.full {
+       background-color: #E5DCE8 !important;
+       color: #333 !important;
+       border: 1px solid #E5DCE8 !important;
+     }
+
+     .themebtu.full:hover {
+       background-color: #d8cbdd !important;
+       border-color: #d8cbdd !important;
+     }
+
+     /* Footer subscribe button */
+     .latest-news form button {
+       background-color: #E5DCE8 !important;
+       color: #333 !important;
+     }
+
+     .latest-news form button:hover {
+       background-color: #d8cbdd !important;
+     }
+
+     /* Ensure bullets are displayed */
+     ul {
+       list-style-type: disc; /* Use disc for bullet points */
+       padding-left: 20px; /* Indent the list */
+       margin: 0; /* Remove default margin */
+     }
+
+     /* Optional: Style for the list items */
+     li {
+       margin-bottom: 5px; /* Space between list items */
+       color: #555; /* Ensure text color is visible */
+     }
+   </style>
+ </head>
+<body>
+  <!-- preloader start -->
+    <div class="preloader"> 
+      <div>
+      <div class="container">
+      <div class="squarebox one"></div>
+      <div class="squarebox two"></div>
+      <div class="squarebox three"></div>
+      <div class="squarebox two"></div>
+      <div class="squarebox three"></div>
+      <div class="squarebox four"></div>
+      <div class="squarebox three"></div>
+      <div class="squarebox four"></div>
+      <div class="squarebox five"></div>
+      </div>
+      </div>
+    </div>
+  <!-- preloader end -->
+<header>
+  <div class="container">
+      <div class="nav">
+        <div class="d-flex align-items-center">
+          <div class="logo">
+            <a href="index.html">
+              <img alt="logo" src="assets/img/logo.jpg" style="max-height: 75px; width: auto;">
+            </a>
+          </div>
+          <ul class="menu">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#services-section">Services</a></li>
+            <li><a href="contacts.html">contacts</a></li>
+          </ul>
+        </div>
+        <div class="bar-menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+  </div>
+  <div class="mobile-nav hmburger-menu" id="mobile-nav" style="display:block;">
+    <div class="res-log">
+      <a href="index.html">
+        <img src="https://via.placeholder.com/120x40" alt="Responsive Logo" style="max-height: 40px; width: auto;">
+      </a>
+    </div>
+    <ul>
+      <li class="menu-item-has-children"><a href="JavaScript:void(0)">Home</a>
+        <ul class="sub-menu">
+          <li><a href="index.html">homepage 1</a></li>
+          <li><a href="index-2.html">homepage 2</a></li>
+          <li><a href="index-3.html">homepage 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#services-section">Services</a></li>
+      <li><a href="contacts.html">contacts</a></li>
+    </ul>
+    <a href="JavaScript:void(0)" id="res-cross"></a>
+  </div>
+</header>
+<section class="hero-section-one" style="background-image: url('assets/img/hero-img.jpg')">
+  <div class="container-fluid" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+    <div class="heading-boder">
+    <br>
+      <h2><span>Navigating</span>
+       You Through Complex Regulatory Landscape.</h2>
+       <!-- Replace if required -->
+      <!--<p>Complex Regulatory Landscape</p>
+      <a href="services.html" class="themebtu full">More Services</a>-->
+    </div>
+  </div>
+</section>
+<div>
+  <div class="container">
+    <div class="small-services-color" style="background-color: #f7f7f7;">
+      <div class="row">
+        <div class="col-xl-4 col-lg-6">
+          <div class="small-services" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <i>
+              <i class="fa-solid fa-certificate fa-2x"></i>
+            </i>
+            <div>
+              <a href="#">Authorisation & Licensing</a>
+              <span>Sample sub text.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6">
+          <div class="small-services" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <i>
+              <i class="fa-solid fa-handshake fa-2x"></i>
+            </i>
+            <div>
+              <a href="#">Consultancy Services</a>
+              <span>Sample sub text.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6">
+          <div class="small-services" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <i>
+              <i class="fa-solid fa-shield-halved fa-2x"></i>
+            </i>
+            <div>
+              <a href="#">Outsourced Compliance Officer</a>
+              <span>Sample sub text.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<div class="brands-we-work one gap">
+  <div class="container">
+    <div class="swiper-container brandswiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="brand-img">
+            <img alt="img" src="https://placehold.co/120x63">
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div> 
+<section class="gap no-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="welcome">
+          <img alt="img" src="assets/img/welcome-1.jpeg" style="width: 480px; height: 620px; object-fit: cover;">
+          <img alt="img" class="img-welcome" src="assets/img/welcome-2.jpeg" style="width: 330px; height: 400px; object-fit: cover;">
+          <img alt="dots" class="dots" src="assets/img/dots.png">
+        </div>
+      </div>
+      <div class="col-xl-6 pl-75">
+        <div class="heading design-enjoy">
+          <!--<h6>Our Vision</h6>-->
+          <h2>O1/</h2>
+          <div class="pl-80">
+            <a href="#"><h4>Our Vision</h4></a>
+            <p>To lead the way in setting industry standards and best practices for financial services and insurance-related regulatory excellence.</p>
+          </div>
+        </div>
+        <div class="heading design-enjoy">
+          <!--<h6>Our Mission</h6>-->
+          <h2>O2/</h2>
+          <div class="pl-80">
+            <a href="#"><h4>Our Mission</h4></a>
+            <p>We are committed to delivering Tailored, Innovative Solutions that empower our clients to thrive in a dynamic global landscape.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Added About Page Content -->
+<section id="about-section" class="things-differently gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7">
+        <div class="heading">
+          <h2>About Us</h2>
+          <img alt="dots" class="dots" src="assets/img/dots.png">
+        </div>
+      </div>
+      <div class="col-xl-5">
+        <div class="signature">
+          <p>Established in London in 2003, Callidus is a multi-jurisdictional compliance consultancy. We operate out of London, Dubai, and Chennai.<br>
+            <br>
+            Our expertise in compliance and regulatory affairs extends to all insurance and reinsurance businesses, including:
+          </p>
+          <ul>
+            <li>Lloyd's Managing Agents</li>
+            <li>Syndicates</li>
+            <li>Insurers</li>
+            <li>MGAs</li>
+            <li>Brokers</li>
+            <li>Other Intermediaries</li>
+          </ul>
+          <p>
+          <br>
+            We offer a range of tailored, efficient, and cost-effective solutions to a broad range of businesses.
+            <br>
+            <br>
+            We take great pride in our unwavering commitment to accuracy and consistent delivery of services. Our focused services are backed by extensive expertise and experience in the insurance industry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="services-section" class="we-deliver-results gap" style="background-color: #f7f7f7;">
+  <div class="container">
+    <div class="heading two">
+      <h2>Our Services</h2>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-certificate fa-2x"></i>
+          </i>
+          <h4>Authorisation & Licensing</h4>
+          <p>Expert guidance through regulatory requirements and licensing processes.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-handshake fa-2x"></i>
+          </i>
+          <h4>Consultancy Services</h4>
+          <p>Strategic advice and solutions for regulatory compliance and business optimization.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-shield-halved fa-2x"></i>
+          </i>
+          <h4>Outsourced Compliance Officer & MLRO Services</h4>
+          <p>Professional compliance and money laundering reporting officer services.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-calculator fa-2x"></i>
+          </i>
+          <h4>Outsourced Finance Officer Services</h4>
+          <p>Comprehensive financial management and reporting services.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-file-contract fa-2x"></i>
+          </i>
+          <h4>Company Secretarial Services</h4>
+          <p>Expert handling of corporate governance and administrative requirements.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-magnifying-glass-dollar fa-2x"></i>
+          </i>
+          <h4>AML Auditing Services</h4>
+          <p>Thorough anti-money laundering compliance audits and assessments.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-chalkboard-user fa-2x"></i>
+          </i>
+          <h4>AML Training</h4>
+          <p>Comprehensive anti-money laundering training programs and workshops.</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-6">
+        <div class="makes-us-different-text" style="height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <i>
+            <i class="fa-solid fa-id-card fa-2x"></i>
+          </i>
+          <h4>PRO & Licensing Services</h4>
+          <p>Professional representation and licensing assistance services.</p>
+        </div>
+      </div>
+    </div>
+    <div class="btugap">
+      <a href="#" class="themebtu">More Details</a>
+    </div>
+  </div>
+</section>
+
+<!--
+<div class="counter-style gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="counter-text">
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="counter" data-target="12000"></div>
+            <h6>+</h6>
+          </div>
+          <div class="boder"></div>
+          <span>Finished Projects</span>
+        </div>
+      </div>
+      .. Add other counter boxes ... 
+    </div>
+  </div>
+</div>
+
+
+<div class="gap brands-we-work awards">
+  <div class="container">
+    <h6 class="p-0">Awards</h6>
+    <span>Our clients and their customers always come first.</span>
+    <div class="row">
+      ... Add award boxes ... 
+    </div>
+  </div>
+</div>
+-->
+
+<!-- End of Added About Page Content -->
+<footer class="gap no-bottom" style="background-color: #222 ;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img alt="img" src="assets/img/logo.jpg" style="max-width: 150px; max-height: 150px; width: auto;">
+          </a>
+          <div class="office-locations">
+            <div class="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Dubai, UAE</span>
+            </div>
+            <div class="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>London, UK</span>
+            </div>
+            <div class="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Chennai, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="links">
+          <h6>Additional links</h6>
+          <ul>
+            <li><a href="#about-section">About us</a></li>
+            <li><a href="#services-section">Services</a></li>
+            <li><a href="team.html">team</a></li>
+            <li class="pb-0"><a href="contacts.html">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+     
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="latest-news">
+          <h6>Subscribe</h6>
+            <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam.</p>
+            <form>
+              <input type="text" name="email" placeholder="your email address">
+              <button>go</button>
+            </form>
+        </div>
+       </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Callidus - All Rights Reserved </p>
+      <ul>
+        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- Back to top button -->
+  <a id="button"></a>
+<!-- Back to top button end -->
+<!-- jQuery -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap Js -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- fancybox -->
+<script src="assets/js/jquery.fancybox.min.js"></script>
+<!-- swiper -->
+<script src="assets/js/swiper.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  .office-locations {
+    margin-top: 20px;
+  }
+  
+  .office-locations .location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .office-locations .location i {
+    margin-right: 10px;
+    color: #fff;
+  }
+  
+  .office-locations .location span {
+    color: #fff;
+  }
+</style>
+</body>
