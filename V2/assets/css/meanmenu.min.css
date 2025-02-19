@@ -1,6 +1,6 @@
 a.meanmenu-reveal{display:none}
 .mean-container .mean-bar {
-  background: #366B2A;
+  background: #ffffff;
   float: left;
   min-height: 60px;
   padding: 4px 0 0;
@@ -13,7 +13,7 @@ a.meanmenu-reveal{display:none}
 }
 .mean-container a.meanmenu-reveal{width:22px;height:22px;padding:18px;top:0;right:0;cursor:pointer;color:#fff;text-decoration:none;font-size:16px;text-indent:-9999em;line-height:22px;font-size:1px;display:block;font-family:Arial,Helvetica,sans-serif;font-weight:700;float: right;}
 .mean-container a.meanmenu-reveal span{display:block;background:#fff;height:3px;margin-top:3px}
-.mean-container .mean-nav{float:left;width:100%;background:#0c1923}
+.mean-container .mean-nav{float:left;width:100%;background:#230c0c}
 .mean-container .mean-nav ul{padding:0;margin:0;width:100%;list-style-type:none}
 .mean-container .mean-nav ul li {
   background: #f8f8f8;
@@ -40,7 +40,7 @@ a.meanmenu-reveal{display:none}
 }
 .mean-container .mean-nav ul li li a {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
-  color: #232323;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   opacity: 0.75;
@@ -98,7 +98,7 @@ a.meanmenu-reveal{display:none}
 	border-radius: 0;
 }
 .mean-container a.meanmenu-reveal span {
-  background: #fff;
+  background: #06961e;
 }
 .mobile-menu-area {
   background: #fff none repeat scroll 0 0;
@@ -120,11 +120,14 @@ a.meanmenu-reveal{display:none}
   color: #fff !important;
 }
 .mean-container a.meanmenu-reveal:hover span {
-  background: #fff;
+  background: #046313;
 }
 .mean-container .mean-bar::before {
-    color: #fff;
-    content: "Consalt";
+    color: #06961e;
+    content: "Callidus";
+    background-image: url('assets\images\logo_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     font-size: 28px;
     font-weight: 600;
     left: 10px;

@@ -44,6 +44,7 @@
 
 	<!-- modernizr js -->
 	<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	<style>
 		/* Remove rounded corners globally */
 		* {
@@ -331,6 +332,51 @@
 		.feature-carousel.active {
 			cursor: grabbing; /* Change cursor to grabbing when active */
 		}
+
+		.feature-box {
+			border: 1px solid #0c6e6d;
+			padding: 20px;
+			margin-bottom: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		.feature-box:hover {
+			background-color: #f0f0f0;
+		}
+
+		.feature-details {
+			height: 0; /* Start with height 0 */
+			overflow: hidden; /* Hide overflow */
+			transition: height 0.5s ease; /* Smooth transition for height */
+			margin-top: 10px; /* Space above the details */
+		}
+
+		.feature-details.show {
+			height: auto; /* Allow height to expand */
+		}
+
+		.feature-box h2 {
+			margin: 0; /* Remove margin for the header */
+		}
+
+		.nice-box {
+			background-color: #ffffff; /* White background */
+			border-radius: 10px; /* Rounded corners */
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+			padding: 20px; /* Padding inside the box */
+			margin-bottom: 20px; /* Space below the box */
+			transition: transform 0.3s; /* Smooth transform on hover */
+		}
+
+		.nice-box:hover {
+			transform: translateY(-5px); /* Lift effect on hover */
+		}
+
+		.nice-box h2 {
+			margin: 0; /* Remove margin for the header */
+			color: #0c6e6d; /* Header color */
+		}
 	</style>
 </head>
 
@@ -352,32 +398,56 @@
 						<ul class="nav_scroll">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About</a></li>
-							<li class="has-mega-menu"><a href="service.html">Services</a>
+							<li class="has-mega-menu"><a href="new_services.html">Services</a>
 								<div class="mega-menu">
 									<div class="mega-menu-content">
 										<div class="row">
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Business Consulting</a></h4>
-													<p>Strategic guidance and solutions to optimize your business operations and growth.</p>
+													<h4><a href="service-details.html">Authorisation & Licensing</a></h4>
+													<p>Streamline your business setup with efficient regulatory approvals and license management.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Digital Transformation</a></h4>
-													<p>Modernize your business with cutting-edge digital solutions and strategies.</p>
+													<h4><a href="service-details.html">Consultancy Services</a></h4>
+													<p>Leverage expert insights to drive strategic growth and operational excellence.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Market Analysis</a></h4>
-													<p>In-depth market research and competitive analysis to inform strategic decisions.</p>
+													<h4><a href="service-details.html">MLRO Services</a></h4>
+													<p>Enhance your compliance framework with dedicated Money Laundering Reporting support.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Risk Management</a></h4>
-													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
+													<h4><a href="service-details.html">Finance Officer Services</a></h4>
+													<p>Secure robust financial oversight and strategic fiscal management for your organization.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">AML Auditing Services</a></h4>
+													<p>Conduct thorough anti-money laundering audits to identify and mitigate compliance risks.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">Secretarial Services</a></h4>
+													<p>Improve corporate governance with professional secretarial and administrative solutions.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">AML Training</a></h4>
+													<p>Empower your team with targeted training to strengthen your anti-money laundering defenses.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">PRO & Licensing Services</a></h4>
+													<p>Simplify licensing processes with reliable PRO services to accelerate business operations.</p>
 												</div>
 											</div>
 										</div>
@@ -505,120 +575,77 @@
 			</div>
 			<div class="row pt-60">
 				<div class="col-lg-8">
-					<div class="service_details_content" id="website-development">
-						<h2>Website Development</h2>
-						<p class="details_decs1">Globally engage cross-media leadership skills before cross-media innovation forward morph flexible
-							whereas process-centric models. Efficiently transform customer directed alignments for front-end meta
-							Dramatically harness cross-platform best practices whereas business services. Conveniently formula
-							standards in innovation with wireless vertical intellectual capital before global architectures engage
-							based results with visionary models.</p>
-						<p class="details_decs2">Dramatically harness cross-platform best practices whereas business services. Conveniently formula
-							standards in innovation with wireless Globally engage cross-media leadership best breed experience
-							rather than bricks-and-clicks infomediaries monotonectally</p>
-						<p class="details_decs3">Globally engage cross-media leadership skills before cross-media innovation forward morph
-							whereas process-centric models. Efficiently transform customer directed alignments</p>
-					</div>
-					<div class="row pt-32" id="strategic-work-planning">
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon1.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Strategic Work Planning</h3>
-									<p>Completely implement globals turn markets in conveniently </p>
-								</div>				
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon2.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Business Solutions</h3>
-									<p>Completely implement globals turn markets in conveniently </p>
-								</div>				
-							</div>
+					<div class="feature_item style_two" id="auth-licen">
+						<h2>Authorisation & Licensing</h2>
+						<div class="feature-details">
+							<p class="details_decs1">We offer end-to-end support for individuals and corporates seeking to set up an entity in the UAE. Our expertise allows us to provide our clients with assistance in incorporating either as a Mainland Company or a Freezone Company. Applying for and obtaining a license to operate in the UAE involves navigating various regulatory complexities that can be time-consuming and confusing.</p>
+							<p class="details_decs2">Our team of licensing specialists will handle the entire process for you. From preparing and submitting the business plan, requisite forms and policies, we handle it all, ensuring that your application is thorough, saving you valuable time and resources.</p>
 						</div>
 					</div>
-					<div class="row pt-32" id="digital-marketing">
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon3.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Digital Marketing</h3>
-									<p>Enhance your online presence with targeted digital marketing strategies.</p>
-								</div>				
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon4.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>SEO Optimization</h3>
-									<p>Improve your website's visibility on search engines through effective SEO techniques.</p>
-								</div>				
-							</div>
+					<div class="feature_item style_two" id="consult">
+						<h2>Consultancy Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">Operating a business in the UAE involves overcoming hurdles that may come up involving identifying, managing and mitigating enterprise compliance risks. New businesses often face penalties due to non-compliance with the law and regulations. Such legal liabilities can not only cause great harm to a company's reputation but can also lead to substantial financial loss.</p>
+							<p class="details_decs2">Our Compliance Consultants provide piecemeal custom-tailored solutions that guide you towards a profitable resolution of your grievances, while taking an independent and unbiased stance on the issue.</p>
 						</div>
 					</div>
-					<div class="row pt-32" id="content-creation">
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon5.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Content Creation</h3>
-									<p>Craft compelling content that engages your audience and drives conversions.</p>
-								</div>				
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon6.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Social Media Management</h3>
-									<p>Manage your social media presence effectively to build brand awareness.</p>
-								</div>				
-							</div>
+					<div class="feature_item style_two" id="mlro">
+						<h2>Outsourced Compliance Officer & MLRO Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">Non-compliance is costlier than compliance. The Compliance Officer's function is arguably the most important area that a business needs to take care of, especially when the company experiences any kind of rapid growth.</p>
+							<p class="details_decs2">Our team comprises of qualified and seasoned personnel who serve as capable Compliance and Money Laundering Reporting Officers for companies who wish to outsource the role. Your designated Compliance Officer/ MLRO will assist you in monitoring compliance, documenting your KYC process, training your staff in AML compliances, establishing compliance policies in your organisation and providing you with guidance pertaining to applicable rules and regulations.</p>
 						</div>
 					</div>
-					<div class="row pt-32" id="data-analytics">
-						<div class="col-lg-6 col-md-12">
-							<div class="service_details_item">
-								<div class="service_detls_icon">
-									<img src="assets/images/inner-img/service_icon7.png" alt="">
-								</div>
-								<div class="service_dtls_content">							
-									<h3>Data Analytics</h3>
-									<p>Utilize data analytics to make informed business decisions and strategies.</p>
-								</div>				
-							</div>
+					<div class="feature_item style_two" id="outsource">
+						<h2>Outsourced Finance Officer Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">The Finance Officer's function is mainly to ensure that financial discipline, compliance and internal controls are in place within the organization. Our team comprises of competent and experienced resources who serve as capable Finance Officers for companies who wish to outsource the role.</p>
+							<p class="details_decs2">Your designated Finance Officer will assist you in preparing and submitting your Financial Returns, monitoring your Capital Adequacy, liaise with the External Auditor and file your organization's VAT Returns.</p>
+						</div>
+					</div>
+					<div class="feature_item style_two" id="secretarial">
+						<h2>Company Secretarial Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">A Company Secretary's function is to ensure that all necessary information is provided to board members and proper procedures are followed, for example, maintaining statutory books, including registers of members, directors and secretaries, organizing board meetings and AGMs, preparing agendas and taking minutes.</p>
+							<p class="details_decs2">Our team includes skilled and trained individuals who serve as capable Company Secretaries for companies who wish to outsource the role. Your designated Company Secretary will assist you in convening Board Meetings, advising Directors on Corporate Governance, and maintaining public registers and other statutory registers.</p>
+						</div>
+					</div>
+					<div class="feature_item style_two" id="aml">
+						<h2>AML Auditing Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">The goal of an AML Audit is to evaluate and improve an organization's internal controls, policies, and procedures to ensure compliance with the applicable AML rules and regulations.</p>
+							<p class="details_decs2">Our Compliance Consultants will carry out a comprehensive AML Audit for your organization, that examines, evaluates and investigates existing compliance protocols, thereafter, identifying compliance issues, and designing appropriate solutions.</p>
+						</div>
+					</div>
+					<div class="feature_item style_two" id="training">
+						<h2>AML Training</h2>
+						<div class="feature-details">
+							<p class="details_decs1">Businesses must conduct frequent AML training for all employees and senior management, in order to ensure that they fully understand their roles and responsibilities under the AML rules and regulations. Our training team consists of personnel who have years of hands-on experience in conducting KYC and sanctions screening.</p>
+							<p class="details_decs2">Upon completing our training session, your employees will be able to detect suspicious transactions, conduct customer identification, identify business risks and understand the implications of AML law.</p>
+						</div>
+					</div>
+					<div class="feature_item style_two" id="pro">
+						<h2>PRO & Licensing Services</h2>
+						<div class="feature-details">
+							<p class="details_decs1">We also provide assistance in obtaining Employment visa/ Visit visa/ Dependent visa/ Non-DIFC Sponsored Employment visa.</p>
+							<p class="details_decs2">We also assist in the process of document attestation from various governmental authorities. Additionally, we offer Value Added Tax (VAT) registration services for new and existing businesses.</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="sidebar_box">
-						<h2 class="sidebar_title">Benifit's the Services</h2>
-						<p>Leadership skill before media innovation 
-							customer directed alignments</p>
+						<h2 class="sidebar_title">What Our Clients Say</h2>
+						<p>Place to add some testimonials or something that can engage the audience</p>
 						<div class="sidebar-list">
 							<ul>
-								<li><i class="fas fa-check"></i>Professional Team Member</li>
-								<li><i class="fas fa-check"></i>Any Problem Solving</li>
-								<li><i class="fas fa-check"></i>Implement Business</li>
-								<li><i class="fas fa-check"></i>Implement Business</li>
+								<li><i class="fas fa-check"></i>Expert Compliance Guidance</li>
+								<li><i class="fas fa-check"></i>Tailored Business Solutions</li>
+								<li><i class="fas fa-check"></i>Proven Track Record in Approvals</li>
+								<li><i class="fas fa-check"></i>Dedicated Client Support</li>
 							</ul>
 						</div>
-						<div class="consalt_btn sidebar_style pt-37">
-							<a href="contact.html">Contact With Us<span></span></a>
+						<div class="contact-form pt-37">
+							<button type="submit">Reach out to us</button>
 						</div>
 					</div>
 				</div>
@@ -947,6 +974,22 @@
 
 			// Initial update
 			updateCarousel();
+		</script>
+
+		<!-- Add this script just before the closing </body> tag -->
+		<script>
+			// Add event listeners to all feature items for hover functionality
+			document.querySelectorAll('.feature_item.style_two').forEach(box => {
+				box.addEventListener('mouseenter', function() {
+					const details = this.querySelector('.feature-details');
+					details.style.height = details.scrollHeight + 'px'; // Set height to the full height of the content
+				});
+
+				box.addEventListener('mouseleave', function() {
+					const details = this.querySelector('.feature-details');
+					details.style.height = '0'; // Collapse height back to 0
+				});
+			});
 		</script>
 
 </body>
