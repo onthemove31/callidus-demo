@@ -106,27 +106,27 @@
 		.mega-menu {
 			position: absolute;
 			top: 100%;
-			left: 0;
-			width: 100vw;
+			left: 50%;
+			width: 1330px;
 			background: white;
 			box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 			opacity: 0;
 			visibility: hidden;
 			transition: all 0.3s ease;
-			transform: translateY(10px);
+			transform: translate(-60%, 10px);
 			z-index: 1000;
-			margin-left: calc(-50vw + 50%);
+			margin-left: 0;
 		}
 
 		.has-mega-menu:hover .mega-menu {
 			opacity: 1;
 			visibility: visible;
-			transform: translateY(0);
+			transform: translate(-60%, 0);
 		}
 
 		.mega-menu-content {
 			padding: 30px;
-			max-width: 1140px; /* Standard Bootstrap container width */
+			max-width: 1330px;
 			margin: 0 auto;
 		}
 
@@ -380,6 +380,30 @@
 													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
 												</div>
 											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">Risk Management</a></h4>
+													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">Risk Management</a></h4>
+													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">Risk Management</a></h4>
+													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
+												</div>
+											</div>
+											<div class="col-lg-3">
+												<div class="mega-menu-item">
+													<h4><a href="service-details.html">Risk Management</a></h4>
+													<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -504,10 +528,16 @@
 					<!-- slide item 1 -->
 					<div class="swiper-slide">
 						<div class="consalt-slider-height">
-							<video autoplay muted loop class="consalt-slider-bg" style="width: 100%; height: 100%; object-fit: cover;">
-								<source src="assets\video\complex.mp4" type="video/mp4">
+							<video autoplay muted loop class="consalt-slider-bg" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+								<source src="assets/video/complex.mp4" type="video/mp4">
 								Your browser does not support the video tag.
 							</video>
+							<script>
+								// Show the video once it's loaded
+								document.querySelector('.consalt-slider-bg').addEventListener('loadeddata', function() {
+									this.style.display = 'block';
+								});
+							</script>
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-12">
