@@ -106,27 +106,27 @@
 		.mega-menu {
 			position: absolute;
 			top: 100%;
-			left: 0;
-			width: 100vw;
+			left: 50%;
+			width: 1330px;
 			background: white;
 			box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 			opacity: 0;
 			visibility: hidden;
 			transition: all 0.3s ease;
-			transform: translateY(10px);
+			transform: translate(-60%, 10px);
 			z-index: 1000;
-			margin-left: calc(-50vw + 50%);
+			margin-left: 0;
 		}
 
 		.has-mega-menu:hover .mega-menu {
 			opacity: 1;
 			visibility: visible;
-			transform: translateY(0);
+			transform: translate(-60%, 0);
 		}
 
 		.mega-menu-content {
 			padding: 30px;
-			max-width: 1140px; /* Standard Bootstrap container width */
+			max-width: 1330px;
 			margin: 0 auto;
 		}
 
@@ -281,7 +281,7 @@
 		.feature_area.style_two.style_four {
 			position: relative;
 			z-index: 2;
-			background: white;
+			background: #e9eaec; /* Solid color */
 			padding: 100px 0;
 			margin-top: -110px;  /* This creates the overlap effect */
 		}
@@ -358,49 +358,49 @@
 										<div class="row">
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Authorisation & Licensing</a></h4>
+													<h4><a href="new_services.html">Authorisation & Licensing</a></h4>
 													<p>Streamline your business setup with efficient regulatory approvals and license management.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Consultancy Services</a></h4>
+													<h4><a href="new_services.html">Consultancy Services</a></h4>
 													<p>Leverage expert insights to drive strategic growth and operational excellence.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">MLRO Services</a></h4>
+													<h4><a href="new_services.html">MLRO Services</a></h4>
 													<p>Enhance your compliance framework with dedicated Money Laundering Reporting support.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Finance Officer Services</a></h4>
+													<h4><a href="new_services.html">Finance Officer Services</a></h4>
 													<p>Secure robust financial oversight and strategic fiscal management for your organization.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">AML Auditing Services</a></h4>
+													<h4><a href="new_services.html">AML Auditing Services</a></h4>
 													<p>Conduct thorough anti-money laundering audits to identify and mitigate compliance risks.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">Secretarial Services</a></h4>
+													<h4><a href="new_services.html">Secretarial Services</a></h4>
 													<p>Improve corporate governance with professional secretarial and administrative solutions.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">AML Training</a></h4>
+													<h4><a href="new_services.html">AML Training</a></h4>
 													<p>Empower your team with targeted training to strengthen your anti-money laundering defenses.</p>
 												</div>
 											</div>
 											<div class="col-lg-3">
 												<div class="mega-menu-item">
-													<h4><a href="service-details.html">PRO & Licensing Services</a></h4>
+													<h4><a href="new_services.html">PRO & Licensing Services</a></h4>
 													<p>Simplify licensing processes with reliable PRO services to accelerate business operations.</p>
 												</div>
 											</div>
@@ -430,19 +430,19 @@
 					<li><a href="#">Services</a>
 						<ul class="sub_menu">
 							<li>
-								<a href="service-details.html">Business Consulting</a>
+								<a href="new_services.html">Business Consulting</a>
 								<p>Strategic guidance and solutions to optimize your business operations and growth.</p>
 							</li>
 							<li>
-								<a href="service-details.html">Digital Transformation</a>
+								<a href="new_services.html">Digital Transformation</a>
 								<p>Modernize your business with cutting-edge digital solutions and strategies.</p>
 							</li>
 							<li>
-								<a href="service-details.html">Market Analysis</a>
+								<a href="new_services.html">Market Analysis</a>
 								<p>In-depth market research and competitive analysis to inform strategic decisions.</p>
 							</li>
 							<li>
-								<a href="service-details.html">Risk Management</a>
+								<a href="new_services.html">Risk Management</a>
 								<p>Comprehensive risk assessment and mitigation strategies for your business.</p>
 							</li>
 						</ul>
@@ -523,8 +523,18 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section_title text-center">
+						<h3>Our Vision</h3>
+						<p>To lead the way in setting industry standards and best practices for financial services and insurance-related regulatory excellence.</p>
+						<br>
+						<h3>Our Mission</h3>
+						<p>We are committed to delivering Tailored, Innovative Solutions that empower our clients to thrive in a dynamic global landscape.</p>
+					</div>
+					<hr style="border: 1px solid #0c6e6d; margin: 20px 0;">
+				</div>	
+				<div class="col-lg-12">
+					<div class="section_title text-center">
 						<h4>Meet Our Team</h4>
-						<h1>Callidus Team</h1>
+						<!--<h1>Callidus Team</h1>-->
 						<p>At Callidus, we combine experience, passion, and expertise to navigate the intricacies of compliance and regulatory landscapes, 
 							ensuring our clients receive top-notch, tailored solutions.</p>
 					</div>
@@ -670,17 +680,7 @@
 				<div class="col-md-7">
 					<div class="footer-bottom-content">
 						<div class="footer-bottom-content-copy">
-							<p>Copyright © 2024 Callidus</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-5 text-right">
-					<div class="footer-bottom-content">
-						<div class="footer-bottom-menu">
-							<ul>
-								<li><a href="#">WhatsApp</a></li>
-								<li><a href="#">LinkedIn</a></li>
-							</ul>
+							<p>Get in Touch with Us</p>
 						</div>
 					</div>
 				</div>
