@@ -377,10 +377,79 @@
 			margin: 0; /* Remove margin for the header */
 			color: #0c6e6d; /* Header color */
 		}
+
+		/* News Ticker Styles */
+		.news-ticker {
+			background: #0c6e6d;
+			color: white;
+			padding: 10px 0;
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+			z-index: 9999;
+		}
+
+		.news-ticker-content {
+			white-space: nowrap;
+			animation: ticker 75s linear infinite;
+			display: inline-block;
+			padding-left: 100%;
+		}
+
+		.news-ticker-item {
+			display: inline-block;
+			padding: 0 50px;
+			color: white;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.news-ticker-item:hover {
+			color: #e0e0e0;
+		}
+
+		@keyframes ticker {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
+		.news-ticker-container {
+			overflow: hidden;
+			width: 100%;
+		}
+
+		/* Adjust header and content positions */
+		.consalt-header-area {
+			margin-top: 42px;
+			position: relative;
+			z-index: 1000;
+		}
+
+		.mobile-menu-area {
+			margin-top: 42px;
+		}
+
+		.service_details {
+			margin-top: 42px !important;
+		}
 	</style>
 </head>
 
 <body>
+    <!-- Start News Ticker -->
+    <div class="news-ticker">
+        <div class="news-ticker-container">
+            <div class="news-ticker-content" id="newsTicker">
+                <!-- Default news items (shown while loading or if API fails) -->
+                <a href="#" class="news-ticker-item">Loading latest news...</a>
+            </div>
+        </div>
+    </div>
+    <!-- End News Ticker -->
 
 	<!--==================================================-->
 	<!-- Start Consalt Header Area Style Three-->
@@ -397,7 +466,7 @@
 					<div class="header-menu">
 						<ul class="nav_scroll">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="leadership.html">Leadership Team</a></li>
 							<li class="has-mega-menu"><a href="new_services.html">Services</a>
 								<div class="mega-menu">
 									<div class="mega-menu-content">
@@ -454,6 +523,9 @@
 									</div>
 								</div>
 							</li>
+							<li><a href="case-studies.html">Case Studies</a></li>
+							<li><a href="market-insights.html">Market Insights</a></li>
+							<li><a href="about.html">About</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
@@ -472,7 +544,7 @@
 			<nav class="header-menu">
 				<ul class="nav_scroll">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
+					<li><a href="leadership.html">Leadership Team</a></li>
 					<li><a href="#">Services</a>
 						<ul class="sub_menu">
 							<li>
@@ -493,6 +565,9 @@
 							</li>
 						</ul>
 					</li>
+					<li><a href="case-studies.html">Case Studies</a></li>
+					<li><a href="market-insights.html">Market Insights</a></li>
+					<li><a href="about.html">About</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</nav>
@@ -569,7 +644,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="service_details_img">
-						<img src="assets/images/inner-img/service_img.png" alt="">
+					<!--	<img src="assets/images/inner-img/service_img.png" alt=""> -->
 					</div>
 				</div>
 			</div>
@@ -993,6 +1068,116 @@
 					details.style.height = '0'; // Collapse height back to 0
 				});
 			});
+		</script>
+
+		<!-- Add News API Configuration and Functions -->
+		<script>
+		// News API Configuration
+		const NEWS_API_KEY = 'f3347aae83eb42a08b8c1f38bb878959';
+		const NEWS_KEYWORDS = '(UAE OR Dubai OR DIFC OR ADGM OR UK OR "United Kingdom" OR London OR India OR Mumbai OR Delhi) AND (regulatory compliance OR business licensing OR AML OR anti money laundering OR corporate tax OR business setup OR financial regulations)';
+		const EXCLUDED_KEYWORDS = '-stocks -cryptocurrency -crypto -bitcoin -trading';
+		const NEWS_REFRESH_INTERVAL = 3600000; // Refresh every hour
+
+		async function fetchNews() {
+			try {
+				const response = await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(NEWS_KEYWORDS + ' ' + EXCLUDED_KEYWORDS)}&language=en&sortBy=publishedAt&pageSize=12&apiKey=${NEWS_API_KEY}`);
+				const data = await response.json();
+				
+				if (data.status === 'ok' && data.articles.length > 0) {
+					const newsTickerContent = document.getElementById('newsTicker');
+					newsTickerContent.innerHTML = '';
+					
+					const relevantArticles = data.articles.filter(article => {
+						const content = (article.title + ' ' + article.description).toLowerCase();
+						return (
+							(content.includes('compliance') ||
+							content.includes('regulatory') ||
+							content.includes('license') ||
+							content.includes('aml') ||
+							content.includes('business setup') ||
+							content.includes('corporate tax') ||
+							content.includes('difc') ||
+							content.includes('adgm') ||
+							content.includes('uae business') ||
+							content.includes('dubai business') ||
+							content.includes('uk business') ||
+							content.includes('british') ||
+							content.includes('london') ||
+							content.includes('india business') ||
+							content.includes('mumbai') ||
+							content.includes('delhi') ||
+							content.includes('financial regulation')) &&
+							!content.includes('stock market') &&
+							!content.includes('cryptocurrency') &&
+							!content.includes('trading platform')
+						);
+					}).slice(0, 8);
+
+					relevantArticles.forEach(article => {
+						const publishDate = new Date(article.publishedAt);
+						const formattedDate = publishDate.toLocaleDateString('en-US', {
+							month: 'short',
+							day: 'numeric',
+							year: 'numeric'
+						});
+
+						const newsItem = document.createElement('a');
+						newsItem.href = article.url;
+						newsItem.className = 'news-ticker-item';
+						newsItem.target = '_blank';
+						newsItem.rel = 'noopener noreferrer';
+						
+						let emoji = '📢';
+						const content = article.title.toLowerCase();
+						if (content.includes('tax') || content.includes('financial')) emoji = '💰';
+						if (content.includes('regulation') || content.includes('law')) emoji = '⚖️';
+						if (content.includes('compliance') || content.includes('aml')) emoji = '✅';
+						if (content.includes('license') || content.includes('permit')) emoji = '📋';
+						if (content.includes('business setup') || content.includes('company formation')) emoji = '🏢';
+						if (content.includes('training') || content.includes('workshop')) emoji = '📚';
+						
+						newsItem.textContent = `${emoji} ${article.title} (${formattedDate})`;
+						newsTickerContent.appendChild(newsItem);
+					});
+
+					if (relevantArticles.length === 0) {
+						setFallbackNews();
+					}
+				}
+			} catch (error) {
+				console.error('Error fetching news:', error);
+				setFallbackNews();
+			}
+		}
+
+		function setFallbackNews() {
+			const newsTickerContent = document.getElementById('newsTicker');
+			newsTickerContent.innerHTML = `
+				<a href="#" class="news-ticker-item">⚖️ UAE Updates Corporate Tax Guidelines for Free Zones - Important Changes for Businesses</a>
+				<a href="#" class="news-ticker-item">✅ UK Financial Conduct Authority Announces New AML Framework</a>
+				<a href="#" class="news-ticker-item">📋 DIFC Announces Streamlined Licensing Process for FinTech Companies</a>
+				<a href="#" class="news-ticker-item">🏢 India Introduces New Foreign Investment Regulations for Financial Services</a>
+				<a href="#" class="news-ticker-item">💰 UAE Ministry of Finance Updates Corporate Tax Implementation</a>
+				<a href="#" class="news-ticker-item">⚖️ UK Companies House Reform: New Registration Requirements</a>
+				<a href="#" class="news-ticker-item">✅ RBI Updates Compliance Guidelines for Indian Financial Institutions</a>
+				<a href="#" class="news-ticker-item">📋 Dubai Economic Department Simplifies Business Licensing Process</a>
+			`;
+		}
+
+		// Initial fetch and periodic refresh
+		document.addEventListener('DOMContentLoaded', () => {
+			fetchNews();
+			setInterval(fetchNews, NEWS_REFRESH_INTERVAL);
+		});
+
+		// Add hover functionality to pause the ticker
+		document.querySelector('.news-ticker').addEventListener('mouseenter', function() {
+			document.querySelector('.news-ticker-content').style.animationPlayState = 'paused';
+		});
+
+		document.querySelector('.news-ticker').addEventListener('mouseleave', function() {
+			document.querySelector('.news-ticker-content').style.animationPlayState = 'running';
+		});
 		</script>
 
 </body>
